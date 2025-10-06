@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #form {
+            background-color: bisque;
+            width: 400px;
+            padding: 10px;
+        }
+        .input-text {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<form id="form" action="#" method="get">
+    <h3 style="text-align: center">Đăng ký</h3>
+    <label for="name">Tên</label>
+    <input style="margin-left: 13px" class="input-text" id="name" name="name"><br>
+    <label for="email">Email</label>
+    <input style="margin-top: 5px" class="input-text" id="email"  name="email"><br>
+    <label>Giới tính</label>
+    <input type="radio" name="gender" value="Male"> Nam
+    <input type="radio" name="gender" value="Female"> Nữ <br>
+    <label>Sở thích</label>
+    <input type="checkbox" name="hobbies" value="football"> Bóng đá
+    <input type="checkbox" name="hobbies" value="shopping"> Mua sắm
+    <input type="checkbox" name="hobbies" value="reading"> Đọc báo <br>
+    <label>Ngày sinh</label>
+    <input type="date" name="birthday"><br>
+    <label>Lớp học</label>
+    <select name="className">
+        <option value="c09">C0925G1</option>
+        <option value="c10">C10</option>
+        <option value="c11">C11</option>
+    </select>
+    <div style="display: flex; justify-content: center">
+        <button type="submit">Gửi</button>
+        <input type="reset" value="Xoá"/>
+    </div>
+
+</form>
+<script>
+    function sendData(){
+        let name = document.getElementById("name").value;
+        alert("Hello" + name);
+    }
+</script>
+</body>
+</html>
