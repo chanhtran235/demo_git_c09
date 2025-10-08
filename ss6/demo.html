@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="number1" placeholder="enter nubmer1">
+<input id="number2" placeholder="enter nubmer2">
+<button onclick="tinhTong()" id="btn">+</button>
+<p id="ketQua"> Kết quả </p>
+<script>
+    // nhập dữ liệu
+    // let name = prompt("Nhập tên");
+    // // xuất dữ liệu
+    // alert("Tên vừa nhập là "+name);
+    // document.write("Tên vừa nhập là "+name);
+    // console.log(name);
+
+    function tinhTong() {
+        let num1 = +document.getElementById("number1").value;
+        let num2 = parseFloat(document.getElementById("number2").value);
+        let sum = num1 + num2;
+        // let conf = confirm("Bạn có muôn hiển thị kết quả không");
+        // if (conf){
+        document.getElementById('ketQua').innerText = "Kết quả: " + sum;
+        // }
+    }
+</script>
+</body>
+</html>
