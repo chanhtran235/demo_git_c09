@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [10, 20, 30]; // mảng  số gồm 3 phân tử
+    let cars = ["Honda", "Vinfast", "Huyndai"];
+    // let student = new Array("MSV-001", "Trần văn Chánh", 42, true); // mảng hỗn hợp mix
+    // for (let i = 0; i < cars.length; i++) {
+    //     cars[i] = "Hãng xe "+ cars[i];
+    // }
+    // for (let car of cars) {
+    //     car = "Hãng xe" +car;
+    // }
+    // for (let i = 0; i <cars.length ; i++) {
+    //     document.write(i +" : "+cars[i] +"<br>");
+    // }
+    // console.log("---------duyệt lấy phần tử")
+    // for (const car of cars) {
+    //     console.log(car)
+    // }
+    // console.log("--------duyệt lấy index-----------")
+    // for (let index in cars) {
+    //     console.log(index)
+    // }
+
+    let string = prompt("Nhập chuỗi cần chuyển đổi");
+    let upper = ["A","B","C"];
+    // let lower = ["a","b","c"];
+    let array = string.split("");
+    for (let i = 0; i < array.length; i++) {
+        if (upper.includes(array[i])){
+            array[i] = array[i].toLowerCase();
+        }else {
+            array[i] = array[i].toUpperCase();
+        }
+        // alert(array[i].charCodeAt());
+        // if ("a" <= array[i] && array[i] <= "z"){
+        //     array[i] = array[i].toUpperCase();
+        // }else {
+        //     array[i] = array[i].toLowerCase();
+        // }
+    }
+    string = array.join("");
+    alert(string);
+
+
+</script>
+</body>
+</html>
