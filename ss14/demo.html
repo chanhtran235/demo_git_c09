@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="showMessage('Codegym')">click</button>
+<script>
+    // gọi hàm
+    // showMessage("C09");
+    // // khai báo / định nghĩa
+    // function showMessage(mess){
+    //     alert("Hello "+ mess);
+    // }
+    // Bài toán làm 3 nhiệm vụ như sau
+    // + kiểm tra một số nhập từ bàn phím có phải là snt?
+    // + In ra 20  số nguyên tố trong dãy số tự nhiên
+    // + Tính tổng  các sống nguyên tố trong mảng 2 chiều
+    let n = +prompt("nhập số cần kiểm tra");
+    if (isPrime(n)) {
+        alert(" là số nguyên tố");
+    } else {
+        alert("không phải snt");
+    }
+    // in ra 20 số nguyên tố trong dãy số tự nhiên
+    let num = 2;
+    let countPrime = 0;
+    while (countPrime < 20) {
+        if (isPrime(num)) {
+            countPrime++;
+            console.log(num);
+        }
+        num++;
+    }
+// tính tổng snt trong mảng 2 chiều
+    let array = [
+        [1, 3, 4, 7],
+        [4, 6, 3, 8],
+        [2, 10, 21, 34]
+    ]
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+
+            if (isPrime(array[i][j])) {
+                sum += array[i][j];
+            }
+        }
+    }
+    console.log("Tổng các số nguyên tố trong mảng 2 chiều là:  "+ sum)
+
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+</script>
+</body>
+</html>
