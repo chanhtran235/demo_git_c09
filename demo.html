@@ -5,6 +5,47 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    // một hàm trong mảng ES6 => 2025
+    // duyệt mảng
+    let array = [10, 23, 34, 11, 23];
 
+    // array.forEach(e => console.log(e));
+    // array.forEach(function (e){
+    //     console.log(e)
+    // });
+    // const display = function (e) {
+    //     console.log(e);
+    // }
+    // arrow function
+    const display = e => console.log(e)
+
+    array.forEach(display);
+    // declare function
+    // function display (e){
+    //     console.log(e)
+    // }
+
+    //express function
+    //  const display = function (e) {
+    //      console.log(e);
+    //  }
+    // let arr = array.map(function (e){
+    //     return e+1000;
+    // })
+    // let arr = array.map(e => e + 1000);
+    // let filterArray = array.filter(e => e % 2 == 0);
+    // let element = array.find(e => e % 2 !== 0);
+    // console.log(filterArray);
+
+    // let arrSort= array.toSorted((a,b)=>a-b);
+    // console.log(array)
+    // console.log(arrSort)
+    let array2 = array;
+    array2[0]=0;
+    console.log(array);
+    console.log(array2);
+
+</script>
 </body>
 </html>
