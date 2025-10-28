@@ -14,7 +14,9 @@
     <div class="card shadow-sm mb-4">
         <div class="card-body">
             <div class="input-group">
+                <input class="form-control form-control-sm" id="id" placeholder="Nhập mã sản phẩm">
                 <input class="form-control form-control-sm" id="name" placeholder="Nhập tên sản phẩm">
+                <input class="form-control form-control-sm" id="price" placeholder="Nhập giá sản phẩm">
                 <button class="btn btn-success btn-sm" onclick="addNewProduct()">Thêm mới</button>
             </div>
         </div>
@@ -39,35 +41,78 @@
 </div>
 
 <script>
-    let productList = ["Sam Sung", "Nokia", "Iphone"];
-    display(productList);
 
-    function addNewProduct() {
-        let name = document.getElementById("name").value;
-        if (name !=""){
-            productList.push(name);
-            document.getElementById("name").value= "";
-            display(productList)
-        }else {
-            alert("Yêu nhâp tên sản phẩm")
+    class Product {
+        constructor(id, name, price) {
+            this._id = id;
+            this._name = name;
+            this._price = price;
+        }
+
+        getId() {
+            return this._id;
+        }
+
+        setId(value) {
+            this._id = value;
+        }
+
+        getName() {
+            return this._name;
+        }
+
+        setName(value) {
+            this._name = value;
+        }
+
+        getPrice() {
+            return this._price;
+        }
+
+        setPrice(value) {
+            this._price = value;
         }
     }
 
-    function deleteByIndex(index){
-        let conf = confirm(`Bạn có muốn xoá sản phẩm ${productList[index]} không?`)
-        if (conf){
-            productList.splice(index,1);
+    let productList = [new Product(1, "Sam sung", 100), new Product(2, "Nokia", 200), new Product(3, "iphone", 300)];
+    display(productList);
+
+    function addNewProduct() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        if (id !== "" && name !== "" && price !== "") {
+
+            productList.push(new Product(id, name, price));
+            document.getElementById("id").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("price").value = "";
+            display(productList)
+        } else {
+            alert("Các trường không được để trống")
+        }
+    }
+
+    function deleteByIndex(index) {
+        let conf = confirm(`Bạn có muốn xoá sản phẩm ${productList[index].getName()} không?`)
+        if (conf) {
+            productList.splice(index, 1);
             display(productList);
         }
     }
 
     function display(list) {
+        list.sort(function (product1, product2) {
+            return product2.getPrice() - product1.getPrice();
+        })
         let tableString = `
             <table class="table table-bordered table-hover align-middle text-center">
                 <thead class="table-primary">
                     <tr>
                         <th>STT</th>
+                        <th>Mã</th>
                         <th>Tên</th>
+                        <th>Giá</th>
                         <th>Sửa</th>
                         <th>Xoá</th>
                     </tr>
@@ -78,7 +123,9 @@
             tableString += `
                 <tr>
                     <td>${i + 1}</td>
-                    <td>${list[i]}</td>
+                    <td>${list[i].getId()}</td>
+                    <td>${list[i].getName()}</td>
+                    <td>${list[i].getPrice()}</td>
                     <td>
                         <button class="btn btn-warning btn-sm">Sửa</button>
                     </td>
